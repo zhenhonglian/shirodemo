@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java1234.dao.UserDao">
+
+	<resultMap type="User" id="UserResult">
+		<result property="id" column="id"/>
+		<result property="userName" column="userName"/>
+		<result property="password" column="password"/>
+	</resultMap>
+	
+	<select id="getByUserName" parameterType="String" resultMap="UserResult">
+		select * from user where userName=#{userName}
+	</select>
+	
+	<select id="getRoles" parameterType="String" resultType="String">
+		 select r.roleName from user u,t_role r where u.roleId=r.id and u.userName=#{userName}
+	</select>
+	
+	<select id="getPermissions" parameterType="String" resultType="String">
+		 select p.permissionName from user u,t_role r,t_permission p where u.roleId=r.id and p.roleId=r.id and u.userName=#{userName}
+	</select>
+	  <insert id="insertSelective" parameterType="com.java1234.entity.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+   
+      <if test="userName != null" >
+        userName,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >     
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper> 
