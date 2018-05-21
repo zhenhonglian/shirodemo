@@ -144,7 +144,12 @@
 		<artifactId>shiro-spring</artifactId>
 		<version>1.2.4</version>
 	</dependency>
-	
+	<!-- 验证mqtt协议 -->
+	<dependency>
+			<groupId>org.eclipse.paho</groupId>
+			<artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+			<version>1.0.2</version>
+		</dependency>
 
   </dependencies>
   <build>

@@ -31,9 +31,9 @@ public class UserServiceImpl implements UserService{
 
 	public int addUser(String userName, String password) {
 		User user=new User();
-        new Md5Hash(password,"lalala").toString();
+        String asd=new Md5Hash(password,"lalala").toString();
 		user.setUserName(userName);
-		user.setPassword(password);	
+		user.setPassword(asd);	
 		// TODO Auto-generated method stub
 		return userDao.insertSelective(user);
 	}

@@ -40,7 +40,7 @@ input[type="text"],input[type="password"]{padding-left:26px;}
                     </div>
                     <div class="form-group">
                             <i class="fa fa-lock fa-lg"></i>
-                            <input class="form-control required" type="password" placeholder="Password" id="password" name="password" maxlength="8"/>
+                            <input class="form-control required" type="password" placeholder="Password" id="password" name="password" maxlength="20"/>
                     </div>
                     <div class="form-group col-md-offset-9">
                             
