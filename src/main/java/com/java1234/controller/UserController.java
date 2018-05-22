@@ -68,10 +68,11 @@ public class UserController {
         if(result>0){  
             //将提示信息存入域中，用以前台显示  
             model.addAttribute("msg","恭喜您，注册成功！<br>注册名："+user.getUserName());  
+            return "index";  
         }else{  
             model.addAttribute("msg","服务器异常，注册失败！");  
+            return "WEB-INF/fail";  
         }  
-        return "WEB-INF/fail";  
     } 
 	
 
